@@ -13,4 +13,4 @@ RUN composer global exec 'which phpcs'
 RUN composer global exec 'phpcs -i'
 
 # Set the entrypoint to use the Drupal standard.
-ENTRYPOINT ["phpcs", "-p", "--standard=Drupal"]
+ENTRYPOINT ["phpcs", "-p", "--standard=Drupal --exclude=Drupal.WhiteSpace.OpenTagNewline"]
