@@ -4,12 +4,12 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   triggers {
-    cron('@daily')
+    cron('0 0 * * *')
   }
   stages {
     stage('Build') {
       steps {
-        sh "docker build -t computerminds/phpcs-drupal:${env.BUILD_NUMBER} ."
+        sh "docker build -t computerminds/phpcs-drupal:latest ."
       }
     }
     stage('Publish') {
@@ -18,8 +18,7 @@ pipeline {
       }
       steps {
         withDockerRegistry([ credentialsId: "1679f2a2-5b25-4749-8f17-163fd0ec35af", url: "" ]) {
-          // Add back in the numbered tag.
-          sh "docker push computerminds/phpcs-drupal:${env.BUILD_NUMBER}"
+          sh "docker push computerminds/phpcs-drupal:latest"
         }
       }
     }
