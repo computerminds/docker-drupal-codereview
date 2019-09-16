@@ -1,7 +1,7 @@
 FROM composer/composer:1
 
 # Install coder
-RUN composer global require 'drupal/coder:8.2.*'
+RUN composer global require 'drupal/coder:8.3.*'
 
 # Add the coding standards to PHPCS.
 RUN composer global exec 'phpcs --config-set installed_paths /composer/vendor/drupal/coder/coder_sniffer'
