@@ -9,6 +9,9 @@ RUN composer global exec 'phpcs --config-set installed_paths /composer/vendor/dr
 # Make sure phpcs was installed correctly.
 RUN composer global exec 'which phpcs'
 
+# List the installed version.
+RUN composer global exec 'phpcs --version'
+
 # List the installed standards.
 RUN composer global exec 'phpcs -i'
 
