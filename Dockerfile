@@ -1,4 +1,4 @@
-FROM composer/composer:1.0.0
+FROM composer/composer:1
 
 # Install coder
 RUN composer global require 'drupal/coder:8.2.*'
