@@ -1,4 +1,4 @@
-FROM composer/composer:1
+FROM computerminds/composer:latest
 
 # Install coder
 RUN composer global require 'drupal/coder:8.3.*'
