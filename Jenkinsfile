@@ -9,7 +9,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "docker build -t computerminds/phpcs-drupal:latest ."
+        ansiColor('ansi') {
+            timestamps {
+              sh "docker build -t computerminds/phpcs-drupal:latest ."
+            }
+        }
       }
     }
     stage('Publish') {
